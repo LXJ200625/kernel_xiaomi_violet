@@ -777,6 +777,8 @@ noinline int slow_avc_audit(struct selinux_state *state,
 {
 	struct common_audit_data stack_data;
 	struct selinux_audit_data sad;
+	printk(KERN_EMERG "avc_slow: ssid=%u tsid=%u tclass=%u req=%x audited=%x denied=%d result=%d\n",
+    ssid, tsid, tclass, requested, audited, denied, result);
 
 	if (!a) {
 		a = &stack_data;
